@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/signup">Sign Up</a>
+    </nav>
+    <% if (messages.length === 0) { %>
+    <p>No message to show</p>
+    <% } else { %>
+    <ul>
+      <% messages.forEach(message => { %>
+      <li><%= message.body %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>
