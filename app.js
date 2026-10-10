@@ -21,8 +21,9 @@ app.use(
     saveUninitialized: false,
   }),
 );
-app.use("/", route);
+app.use(passport.initialize());
 app.use(passport.session());
+app.use("/", route);
 
 app.listen(PORT, (error) => {
   if (error) {
