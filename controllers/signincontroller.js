@@ -2,4 +2,8 @@ function signInFormGet(req, res) {
   res.render("signin");
 }
 
-module.exports = { signInFormGet };
+function userDashBoardGet(req, res) {
+  res.render("userdashboard");
+}
+
+module.exports = { signInFormGet, userDashBoardGet };

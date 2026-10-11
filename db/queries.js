@@ -12,4 +12,11 @@ async function newMember(firstname, lastname, email, password) {
   );
 }
 
-module.exports = { getAllMessages, newMember };
+async function newUserPost(title, body, userId) {
+  await pool.query(
+    "INSERT INTO messages (title, body, user_id) VALUES ($1, $2, $3)",
+    [title, body, userId],
+  );
+}
+
+module.exports = { getAllMessages, newMember, newUserPost };

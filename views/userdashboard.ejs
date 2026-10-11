@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/">Back to Home</a>
+    <h1>
+      WELCOME BACK
+      <%=currentUser.first_name %>
+    </h1>
+    <a href="/logout">LOG OUT</a>
+      <form action="/userdashboard" method="post" style="display: flex; flex-direction: column; width: 40%;">
+        <input type="text" hidden value="<%= currentUser.id %>" name="userId" id="userId">
+        <label for="messageTitle">Title:</label>
+        <input type="text" name="messageTitle" id="messageTitle" required>
+        <label for="new">Message:</label> 
+        <textarea name="new" id="new">Your message here...</textarea>
+        <button type="submit">Post</button>
+      </form>
+  </body>
+</html>

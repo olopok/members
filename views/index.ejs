@@ -10,14 +10,8 @@
       <a href="/signup">Sign Up</a>
       <span>Already registered?</span><a href="/signin">Sign in</a>
     </nav>
-    <% if (locals.user) { %>
-    <h1>
-      WELCOME BACK
-      <%= user.first_name %>
-    </h1>
-    <a href="/userdashboard">Dashboard</a>
-    <a href="/logout">LOG OUT</a>
-
+    <% if (currentUser) { %>
+     <a href="/userdashboard">Dashboard</a>
     <% } %>
     <% if (messages.length === 0) { %>
     <p>No message to show</p>
