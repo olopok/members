@@ -3,26 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Document</title>
   </head>
   <body>
-    <nav>
-      <a href="/signup">Sign Up</a>
-      <span>Already registered?</span><a href="/signin">Sign in</a>
-    </nav>
-    <% if (currentUser) { %>
-    <a href="/userdashboard">Dashboard</a>
-    <% } else { %>
-    <p>Sign Up to read user post</p>
-    <% } %>
     <% if (currentUser && messages.length === 0) { %>
+    <a href="/userdashboard">Dashboard</a>
     <p>No message to show</p>
     <% } else if (currentUser ){ %>
-    <ul>
-      <% messages.forEach(message => { %>
-      <li><%= message.body %></li>
-      <% }) %>
-    </ul>
+    <a href="/userdashboard">Dashboard</a>
+
+    <% messages.forEach(message => { %>
+    <div class="message-card">
+      <h3>
+        User
+        <%= message.first_name %>
+        wrote: <br />
+        <%= message.title %>
+      </h3>
+      <p><%= message.body %></p>
+      <span
+        >Created at:
+        <%= new Date(message.created_at).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/London' }) %></span
+      >
+    </div>
+    <% }) %>
+    <% }  else {%>
+    <div class="blur-container">
+      <img src="/images/home.png" alt="blured image" />
+    </div>
+    <dialog open class="home-dialog-container">
+      <form action="" method="dialog">
+        <p>Sign Up to read user post</p>
+        <a href="/signup">Sign Up</a>
+        <span>Already registered?</span><a href="/signin">Sign in</a>
+      </form>
+    </dialog>
     <% } %>
   </body>
 </html>
