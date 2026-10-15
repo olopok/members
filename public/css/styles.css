@@ -17,6 +17,7 @@ html {
 body {
   min-height: 100vh;
   padding: 3em;
+  padding-top: 0.5em;
 }
 
 img,
@@ -39,17 +40,31 @@ button {
   cursor: pointer;
 }
 
-input, textarea{
+input,
+textarea {
   border: 1px solid;
   border-radius: 10px;
 }
 
-label{
+label {
   font-size: 1.6rem;
 }
 
 textarea {
   resize: vertical;
+}
+
+.navbar {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 3em;
+  border: 2px solid;
+  padding: 2em;
+}
+
+.welcome {
+  text-align: center;
 }
 
 .blur-container {
@@ -105,7 +120,7 @@ a:hover {
 
 .form-container {
   width: 40dvw;
-  height: 50dvh;
+  height: fit-content;
   border: 1px solid;
   border-radius: 10px;
   display: flex;
@@ -113,6 +128,8 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin: 4em auto 0 auto;
+  padding-bottom: 3em;
+  padding-top: 3em;
 }
 
 .form {
@@ -122,7 +139,7 @@ a:hover {
   margin-bottom: 2em;
 }
 
-.text{
+.text {
   font-size: 1.4rem;
   margin-right: 1em;
 }

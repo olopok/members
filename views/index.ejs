@@ -11,7 +11,10 @@
     <a href="/userdashboard">Dashboard</a>
     <p>No message to show</p>
     <% } else if (currentUser ){ %>
-    <a href="/userdashboard">Dashboard</a>
+    <div class="navbar">
+      <a href="/userdashboard">My Dashboard</a>
+      <a href="/logout">LOG OUT</a>
+    </div>
     <% messages.forEach(message => { %>
     <div class="message-card">
       <h3>
@@ -32,9 +35,10 @@
       <img src="/images/home.png" alt="blured image" />
     </div>
     <div class="home-dialog-container">
-        <p class="dialog-text">Sign Up to read users post</p>
-        <a href="/signup">Sign Up</a>
-        <span class="dialog-text">Already registered?</span><a href="/signin">Sign in</a>
+      <p class="dialog-text">Sign Up to read users post</p>
+      <a href="/signup">Sign Up</a>
+      <span class="dialog-text">Already registered?</span
+      ><a href="/signin">Sign in</a>
     </div>
     <% } %>
   </body>

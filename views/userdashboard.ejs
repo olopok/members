@@ -7,19 +7,29 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="/">Back to Home</a>
-    <h1>
+    <div class="navbar">
+      <a href="/">Back to Home</a> <a href="/logout">LOG OUT</a>
+    </div>
+    <h1 class="welcome">
       WELCOME BACK
       <%=currentUser.first_name %>
     </h1>
-    <a href="/logout">LOG OUT</a>
-      <form action="/userdashboard" method="post" style="display: flex; flex-direction: column; width: 40%;">
-        <input type="text" hidden value="<%= currentUser.id %>" name="userId" id="userId">
+    <div class="form-container">
+      <form action="/userdashboard" method="post" class="form new-post">
+        <h3 class="text">Write your new post!</h3>
+        <input
+          type="text"
+          hidden
+          value="<%= currentUser.id %>"
+          name="userId"
+          id="userId"
+        />
         <label for="messageTitle">Title:</label>
-        <input type="text" name="messageTitle" id="messageTitle" required>
-        <label for="new">Message:</label> 
+        <input type="text" name="messageTitle" id="messageTitle" required />
+        <label for="new">Message:</label>
         <textarea name="new" id="new">Your message here...</textarea>
         <button type="submit">Post</button>
       </form>
+    </div>
   </body>
 </html>
