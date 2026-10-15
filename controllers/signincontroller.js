@@ -1,5 +1,7 @@
 function signInFormGet(req, res) {
-  res.render("signin");
+  const [message] = req.session.messages ?? [];
+  delete req.session.messages;
+  res.render("signin", { message });
 }
 
 function userDashBoardGet(req, res) {

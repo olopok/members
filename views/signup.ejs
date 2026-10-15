@@ -8,7 +8,7 @@
   </head>
   <body>
     <a href="/">Back to Home</a>
-    <form action="/signup" method="post">
+    <form action="/signup" method="post" class="form">
       <label for="firstname">First name:</label>
       <input type="text" name="firstname" id="firstname" required />
       <label for="lastname">Last name:</label>
@@ -21,7 +21,7 @@
       <input type="password" name="pwdconfirm" id="pwdconfirm" required />
       <button type="submit">SIGN UP</button>
     </form>
-    <span>Already registered?</span><a href="/signin">Sign in</a>
+    <span class="text">Already registered?</span><a href="/signin">Sign in</a>
     <h1>
       <%= locals.welcomeMessage %>
     </h1>

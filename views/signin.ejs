@@ -7,14 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/signin" method="post">
-      <label for="username">Email:</label>
-      <input type="text" name="username" id="username" required />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required />
-      <button type="submit">Log In</button>
-    </form>
-    <span>Not registered yet?</span> <a href="/signup">Sign Up</a>
     <div><a href="/">Back to Home</a></div>
+    <div class="form-container">
+      <form action="/signin" method="post" class="form">
+        <label for="username">Email:</label>
+        <input type="text" name="username" id="username" required />
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required />
+        <button type="submit">Log In</button>
+      </form>
+      <div>
+        <span class="text">Not registered yet?</span>
+        <a href="/signup">Sign Up</a>
+      </div>
+      <% if (message) { %>
+      <p class="error" role="alert"><%= message %></p>
+      <% } %>
+    </div>
   </body>
 </html>
