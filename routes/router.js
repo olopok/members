@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const controller = require("../controllers/homecontroller");
 const signUp = require("../controllers/signupcontroller");
+const validateSignUp = require("../middleware/signupvalidation");
 const signin = require("../controllers/signincontroller");
 const userDash = require("../controllers/dashboardcontroller");
 const passport = require("passport");
@@ -10,7 +11,7 @@ route.get("/", controller.homeRender);
 route.get("/signup", signUp.signUpFormGet);
 route.get("/signin", signin.signInFormGet);
 route.get("/userdashboard", signin.userDashBoardGet);
-route.post("/signup", signUp.signUpPost);
+route.post("/signup", validateSignUp, signUp.signUpPost);
 route.post(
   "/signin",
   passport.authenticate("local", {
