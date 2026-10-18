@@ -2,7 +2,7 @@ const { Router } = require("express");
 const controller = require("../controllers/homecontroller");
 const signUp = require("../controllers/signupcontroller");
 const signin = require("../controllers/signincontroller");
-const userDash=require('../controllers/dashboardcontroller')
+const userDash = require("../controllers/dashboardcontroller");
 const passport = require("passport");
 const route = Router();
 
@@ -20,5 +20,8 @@ route.post(
   }),
 );
 route.get("/logout", controller.logout);
-route.post('/userdashboard',userDash.newMessagePost)
+route.post("/userdashboard", userDash.newMessagePost);
+route.get("/show-old/:id", userDash.oldMessagesListGet)
+
+
 module.exports = route;

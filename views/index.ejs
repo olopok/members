@@ -9,11 +9,12 @@
   <body>
     <% if (currentUser && messages.length === 0) { %>
     <a href="/userdashboard">Dashboard</a>
+    <a href="/logout">Log out</a>
     <p>No message to show</p>
     <% } else if (currentUser ){ %>
     <div class="navbar">
       <a href="/userdashboard">My Dashboard</a>
-      <a href="/logout">LOG OUT</a>
+      <a href="/logout">Log out</a>
     </div>
     <% messages.forEach(message => { %>
     <div class="message-card">

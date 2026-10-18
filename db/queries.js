@@ -21,4 +21,12 @@ async function newUserPost(title, body, userId) {
   );
 }
 
-module.exports = { getAllMessages, newMember, newUserPost };
+async function getMessagesByUserId(user_id) {
+  const { rows } = await pool.query(
+    "SELECT *, COUNT(*) OVER () AS total_count FROM messages WHERE user_id = $1 ORDER BY created_at DESC",
+    [user_id],
+  );
+  return rows;
+}
+
+module.exports = { getAllMessages, newMember, newUserPost, getMessagesByUserId };

@@ -256,6 +256,17 @@ button:hover {
   width: min(38rem, 100%);
 }
 
+.old-container{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+
+.old-container a{
+  width: fit-content;
+  align-self: center;
+}
+
 .text {
   color: var(--color-ink);
   font-size: 1rem;

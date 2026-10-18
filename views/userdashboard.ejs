@@ -8,12 +8,28 @@
   </head>
   <body>
     <div class="navbar">
-      <a href="/">Back to Home</a> <a href="/logout">LOG OUT</a>
+      <a href="/">Back to Home</a>
+      <a href="/logout">LOG OUT</a>
     </div>
-    <h1 class="welcome">
-      WELCOME BACK
-      <%=currentUser.first_name %>
-    </h1>
+    <h1 class="welcome">WELCOME BACK <%=currentUser.first_name %> !!</h1>
+    <menu>
+      <a href="/show-old/<%= currentUser.id %>">My old post</a>
+      <a href="/">My Account</a>
+    </menu>
+    <section class="old-container">
+      <% if (locals.oldMessages) { %> <% oldMessages.forEach(message => { %>
+      <div class="message-card">
+        <h3><%= message.title %></h3>
+        <p><%= message.body %></p>
+        <span
+          >Created at:
+          <%= new Date(message.created_at).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/London' }) %></span
+        >
+      </div>
+      <% }) %>
+      <a href="/userdashboard">Close</a>
+      <% }  %>
+    </section>
     <div class="form-container">
       <form action="/userdashboard" method="post" class="form new-post">
         <h3 class="text">Write your new post!</h3>
@@ -27,7 +43,11 @@
         <label for="messageTitle">Title:</label>
         <input type="text" name="messageTitle" id="messageTitle" required />
         <label for="new">Message:</label>
-        <textarea name="new" id="new">Your message here...</textarea>
+        <textarea
+          name="new"
+          id="new"
+          placeholder="Your message here..."
+        ></textarea>
         <button type="submit">Post</button>
       </form>
     </div>
